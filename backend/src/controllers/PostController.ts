@@ -15,7 +15,7 @@ export default {
         }
     },
     async create(req: Request, res: Response, next: NextFunction) {
-
+      
         try {
             const post = await Post.create(req.body);
             return res.status(200).send(post)

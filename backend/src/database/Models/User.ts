@@ -5,7 +5,7 @@ const UserSchema = new Mongoose.Schema({
         type: String,
         default: "no-name",
     },
-    avatar: {
+    avatar_url: {
         type: String,
         default: "https://localhost:3333/image",
         required: true

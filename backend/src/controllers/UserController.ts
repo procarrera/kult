@@ -14,19 +14,24 @@ export default {
     },
 
     async create(req: Request, res: Response) {
+        console.log(req.body)
         const { name } = req.body
-        const user = await User.findOne({ name })
-        if (!user) {
-            try {
-                const user = await User.create(req.body);
-                return res.status(200).json(user)
-            } catch (error) {
-                console.log(error)
-                return res.status(400).json({ error })
+        if (name) {
+            const user = await User.findOne({ name })
+            if (!user && name) {
+                try {
+                    const newUser = await User.create(req.body);
+                    return res.status(200).send(newUser)
+                } catch (error) {
+                    console.log(error)
+                    return res.status(400).send({ error })
+                }
             }
+            return res.status(400).send({ error: "User already exists" })
         }
-        return res.status(400).send({ error: "User already exists" })
+        return res.status(400).send({ error: "User not defined" })
     },
+
     async update(req: Request, res: Response) {
         const { avatar } = req.body
         try {
