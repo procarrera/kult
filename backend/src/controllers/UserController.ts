@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-
+import * as Yup from 'yup'
 import User from "../database/Models/User"
 
 export default {
@@ -14,22 +14,32 @@ export default {
     },
 
     async create(req: Request, res: Response) {
-        console.log(req.body)
+        const avatar_url = req.file.filename
         const { name } = req.body
-        if (name) {
-            const user = await User.findOne({ name })
-            if (!user && name) {
-                try {
-                    const newUser = await User.create(req.body);
-                    return res.status(200).send(newUser)
-                } catch (error) {
-                    console.log(error)
-                    return res.status(400).send({ error })
-                }
+
+        // Verifies if user already exists
+        const user = await User.findOne({ name })
+        if (!user) {
+            try {
+                const data: any = { name, avatar_url }
+
+                const schema = Yup.object().shape({
+                    name: Yup.string().required(),
+                    avatar_url: Yup.string().required()
+                })
+
+                await schema.validate(data, {
+                    abortEarly: false, //retornar todos os erros ao mesmo tempo
+                })
+                const newUser = await User.create(data);
+                return res.status(201).send(newUser)
+            } catch (error) {
+                console.log(error)
+                return res.status(400).send({ error })
             }
-            return res.status(400).send({ error: "User already exists" })
         }
-        return res.status(400).send({ error: "User not defined" })
+        return res.status(400).send({ error: "User already exists" })
+
     },
 
     async update(req: Request, res: Response) {
