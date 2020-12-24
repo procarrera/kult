@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import multer from 'multer'
-import uploadConfig from './config/upload'
+import uploadConfig from './config/s3_storage'
 
 import FeedController from "./controllers/FeedController"
 import PostController from './controllers/PostController'

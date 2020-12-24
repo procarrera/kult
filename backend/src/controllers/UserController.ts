@@ -13,8 +13,8 @@ export default {
         }
     },
 
-    async create(req: Request, res: Response) {
-        const avatar_url = req.file.filename
+    async create(req: Request & { file: any }, res: Response) {
+        const avatar_url = req.file.location
         const { name } = req.body
 
         // Verifies if user already exists

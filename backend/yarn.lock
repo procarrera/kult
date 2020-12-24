@@ -73,7 +73,15 @@
     "@types/bson" "*"
     "@types/node" "*"
 
-"@types/multer@^1.4.5":
+"@types/multer-s3@^2.7.8":
+  version "2.7.8"
+  resolved "https://registry.yarnpkg.com/@types/multer-s3/-/multer-s3-2.7.8.tgz#2c2bf9cb0b1fa0a249564e274158ff676c113f6b"
+  integrity sha512-/txFVprJEcicycPfjs/juSEPKIKYkrCqN+ZK0xnh5FlYU5scGiSU4PS4WXAe/uzOwK+zgGlpr3dIopFfBUK7sQ==
+  dependencies:
+    "@types/multer" "*"
+    aws-sdk "^2.37.0"
+
+"@types/multer@*", "@types/multer@^1.4.5":
   version "1.4.5"
   resolved "https://registry.yarnpkg.com/@types/multer/-/multer-1.4.5.tgz#db0557562307e9adb6661a9500c334cd7ddd0cd9"
   integrity sha512-9b/0a8JyrR0r2nQhL73JR86obWL7cogfX12augvlrvcpciCo/hkvEsgu80Z4S2g2DHGVXHr8pUIi1VhqFJ8Ufw==
@@ -149,7 +157,7 @@ array-flatten@1.1.1:
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
   integrity sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
 
-aws-sdk@^2.817.0:
+aws-sdk@^2.37.0, aws-sdk@^2.817.0:
   version "2.817.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.817.0.tgz#3a97b690b0ec494cf8ee927affb3973cf26abcc8"
   integrity sha512-DZIdWpkcqbqsCz0MEskHsyFaqc6Tk9XIFqXAg1AKHbOgC8nU45bz+Y2osX77pU01JkS/G7OhGtGmlKDrOPvFwg==
@@ -337,11 +345,6 @@ create-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
-
-crypto@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/crypto/-/crypto-1.0.1.tgz#2af1b7cad8175d24c8a1b0778255794a21803037"
-  integrity sha512-VxBKmeNcqQdiUQUW2Tzq0t377b54N2bMtXO/qiLa+6eRRmmC4qT3D4OnTGoT/U6O9aklQ/jTwbOtRMTTY8G0Ig==
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
