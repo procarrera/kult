@@ -29,9 +29,9 @@ export default {
                 })
 
                 await schema.validate(data, {
-                    abortEarly: false, //retornar todos os erros ao mesmo tempo
+                    abortEarly: false,
                 })
-                const newUser = await User.create(data);
+                const newUser = await User.create(data)
                 return res.status(201).send(newUser)
             } catch (error) {
                 console.log(error)

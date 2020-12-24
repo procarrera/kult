@@ -7,6 +7,12 @@ const PostSchema = new Mongoose.Schema({
         ref: 'User',
         required: true
     },
+    section: {
+        type: String
+    },
+    rating: {
+        type: Number
+    },
     body: {
         type: String
     },

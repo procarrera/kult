@@ -9,13 +9,13 @@ import UserController from './controllers/UserController'
 const routes = Router()
 const upload = multer(uploadConfig)
 
-routes.get("/user", UserController.index)
+routes.get("/users", UserController.index)
 routes.post("/user", upload.single('avatar'), UserController.create)
 routes.put("/user/:userID", UserController.update)
 routes.delete("/user/:userID", UserController.delete)
 
 routes.post("/post", PostController.create)
-routes.get("/post", PostController.index)
+routes.get("/posts", PostController.index)
 
 routes.get('/feed', FeedController.index)
 
