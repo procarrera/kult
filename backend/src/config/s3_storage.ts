@@ -14,6 +14,8 @@ export default {
     storage: multerS3({
         s3: s3,
         bucket: 'kult-test',
+        contentType: multerS3.AUTO_CONTENT_TYPE,
+        acl: "public-read",
         key: (request, file, cb) => {
             const fileName = `${Date.now()}-${file.originalname}`
             cb(null, fileName)
