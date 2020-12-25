@@ -1,4 +1,5 @@
 import React from "react";
+import dateFormater from "../../utils/dateFormater";
 import Rating from "./Rating";
 
 interface PostProps {
@@ -6,11 +7,7 @@ interface PostProps {
 }
 
 const Post: React.FC<PostProps> = ({ post }) => {
-  //Format Date for a DD/MM/YYYY
-  const formatDate = (date: string) => {
-    return new Date(date).toLocaleDateString("pt-BR");
-  };
-  const postDate = formatDate(post.created);
+  const postDate = dateFormater(post.created);
 
   return (
     <div className="flex flex-row justify-start my-12 max-w-2xl font-montserrat text-normal">
