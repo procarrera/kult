@@ -9,6 +9,9 @@ import UserController from './controllers/UserController'
 const routes = Router()
 const upload = multer(uploadConfig)
 
+routes.get("/", (req, res) => {
+    res.send({ "welcome": "welcome to our Backend" })
+})
 routes.get("/users", UserController.index)
 routes.get("/user/:userID", UserController.detail)
 routes.post("/user", upload.single('avatar'), UserController.create)

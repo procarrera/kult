@@ -27,7 +27,10 @@ export default function Post() {
       const response = await api.post("/post", data);
       if (response.data) {
         setBody("");
-        router.push("/");
+        router.push({
+          pathname: "/",
+          query: { new: true },
+        });
       }
     } catch (error) {
       console.log(error);
