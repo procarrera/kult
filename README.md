@@ -1,6 +1,6 @@
 ### PROJETO KULT
 
-https://kult-web.vercel.br
+https://kult-web.vercel.app
 
 *Requisitos*
 
