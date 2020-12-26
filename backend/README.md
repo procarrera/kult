@@ -1,4 +1,16 @@
-*KULT TEST BACKEND*
+### _KULT TEST BACKEND_
+
+#### INSTALL:
+
+```
+yarn
+```
+
+#### RUN:
+
+```
+yarn dev
+```
 
 ```
 .
