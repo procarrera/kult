@@ -14,6 +14,19 @@ yarn
 yarn dev
 ```
 
+LOCAL ENV:
+
+```
+PORT=4444
+
+MONGO_URL=mongodb+srv://<USERNAME>:<PASSWORD>@pedro.ikaui.mongodb.net/<DATABASE_NAME>?retryWrites=true&w=majority
+
+AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXXXX
+AWS_REGION=eg: sa-east-1
+AWS_BUCKET_NAME=eg: kult-test
+```
+
 ```
 .
 ├── .env
