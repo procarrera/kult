@@ -6,16 +6,12 @@ import useFetch from "../src/utils/dataFetcher";
 
 export default function Profile() {
   const id = "5fe6c68e60f4190ca3cb6b46";
+  const router = useRouter();
+  const [newAvatar, setNewAvatar] = useState<File>();
 
   const { data } = useFetch(`/user/${id}`);
 
-  const router = useRouter();
-
-  const [loading, setLoading] = useState<Boolean>(false);
-  const [newAvatar, setNewAvatar] = useState<File>();
-
   async function handleFormSubmit(event: FormEvent) {
-    setLoading(true);
     const config = {
       headers: {
         "content-type": "multipart/form-data",
@@ -28,17 +24,18 @@ export default function Profile() {
       const response = await api.put(`/user/${id}`, data, config);
       if (response.data) {
         //Handle errors here passing params in routes
-        setLoading(false);
         setNewAvatar(null);
-        router.push("/");
+        router.reload()
       }
     } catch (error) {
       console.log(error);
     }
   }
 
-  if (!data) return <FakeContent/>;
+  // PAGE STILL LOADING //
+  if (!data) return <FakeContent />;
 
+  // PAGE CONTENT LOADED //
   return (
     <div className="flex flex-col bg-kult-secondary min-h-screen px-8 pt-10 md:pt-6">
       <div className="w-60 h-auto relative">
