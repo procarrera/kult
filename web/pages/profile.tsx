@@ -25,7 +25,7 @@ export default function Profile() {
       if (response.data) {
         //Handle errors here passing params in routes
         setNewAvatar(null);
-        router.push({
+         router.push({
           pathname: "/",
           query: { new: true },
         });
