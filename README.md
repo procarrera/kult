@@ -2,12 +2,6 @@
 
 https://kult-web.vercel.app
 
-*Requisitos*
-
-[x] Uma página com uma caixa de texto onde você pode publicar coisas e há uma lista de publicações que você fez. Junto junto com sua foto e nome. Como no Facebook ou Reddit ou Chans.
-
-[x] Uma segunda página onde você pode alterar seu nome e foto de perfil. Essas informações também devem ser atualizadas nos posts que foram feitos antes da alteração.
-
 *Estrategia Global*
 - Estrutura performatica e escalavel tanto para Backend quanto para Frontend
 
