@@ -7,11 +7,13 @@ import useFetch from "../src/utils/dataFetcher";
 export default function Profile() {
   const id = "5fe6c68e60f4190ca3cb6b46";
   const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
   const [newAvatar, setNewAvatar] = useState<File>();
 
   const { data } = useFetch(`/user/${id}`);
 
   async function handleFormSubmit(event: FormEvent) {
+    setLoading(true);
     const config = {
       headers: {
         "content-type": "multipart/form-data",
@@ -24,8 +26,9 @@ export default function Profile() {
       const response = await api.put(`/user/${id}`, data, config);
       if (response.data) {
         //Handle errors here passing params in routes
+        setLoading(false);
         setNewAvatar(null);
-         router.push({
+        router.push({
           pathname: "/",
           query: { new: true },
         });
@@ -75,15 +78,25 @@ export default function Profile() {
                 type="submit"
                 onClick={handleFormSubmit}
               >
-                <img
-                  className="w-full animate-bounce"
-                  src="/upload.svg"
-                  alt=""
-                />
-                <span className="text-xs absolute bottom-2 right-5 font-bold leading-3">
-                  click to <br />
-                  upload
-                </span>
+                {loading ? (
+                  <img
+                    className="w-full animate-pulse"
+                    src="/upload.svg"
+                    alt=""
+                  />
+                ) : (
+                  <>
+                    <img
+                      className="w-full animate-bounce"
+                      src="/upload.svg"
+                      alt=""
+                    />
+                    <span className="text-xs absolute bottom-2 right-5 font-bold leading-3">
+                      click to <br />
+                      upload
+                    </span>
+                  </>
+                )}
               </button>
             ) : (
               <img className="w-8 h-auto" src="/camera.svg" alt="" />
