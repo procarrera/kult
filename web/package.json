@@ -10,10 +10,12 @@
   "dependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "autoprefixer": "^9",
+    "axios": "^0.21.1",
     "next": "10.0.4",
     "postcss": "^7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "swr": "^0.3.11",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
   "devDependencies": {

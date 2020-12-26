@@ -1,5 +1,5 @@
 import aws from 'aws-sdk'
-import multer from 'multer'
+import { Request } from "express"
 import multerS3 from 'multer-s3'
 
 aws.config.update({
@@ -16,9 +16,12 @@ export default {
         bucket: 'kult-test',
         contentType: multerS3.AUTO_CONTENT_TYPE,
         acl: "public-read",
-        key: (request, file, cb) => {
+        key: (request: Request, file, cb) => {
+            const folderName = request.params.userID
+            console.log(folderName)
             const fileName = `${Date.now()}-${file.originalname}`
-            cb(null, fileName)
+            const path = `${folderName}/${fileName}`
+            cb(null, path)
         }
     })
 }
