@@ -1,27 +1,29 @@
 import { GetStaticProps } from "next";
+import Post from "../src/components/Post/";
+import api from "../src/services/api";
 
 export default function Home({ posts }) {
   return (
-    <div>
-      {posts.map((post) => (
-        <div key={post._id}>
-          <h1>{post.creator.name}</h1>
-          <img src={post.creator.avatar_url} alt="" width={50} height={50} />
-          <h3>{post.section}</h3>
-          <h5>{post.rating}</h5>
-          <div>{post.body}</div>
-          <div>{post.created}</div>
-        </div>
-      ))}
+    <div className="flex-1 bg-kult-secondary min-h-screen flex flex-col content-center items-center">
+      <ul className="invisible h-0 py-0 w-full md:visible md:py-8 md:h-auto font-montserrat flex flex-row justify-evenly items-stretch border-b-2 border-primary">
+        <li>MOVIES</li>
+        <li>SERIES</li>
+        <li>PODCASTS</li>
+        <li>MUSICS</li>
+      </ul>
+      <div className="max-w-3xl mx-2 lg:mx-auto">
+        {posts.map((post) => (
+          <Post post={post} key={post._id} />
+        ))}
+      </div>
     </div>
   );
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
   // Call an external API endpoint to get posts.
-  const res = await fetch("http://localhost:4444/posts");
-  const posts = await res.json();
-  console.log(posts);
+  const response = await api.get("/posts");
+  const posts = response.data.reverse();
 
   // will receive `posts` as a prop at build time
   return {
