@@ -4,8 +4,11 @@ import api from "../src/services/api";
 import useFetch from "../src/utils/dataFetcher";
 
 export default function Profile() {
-  const router = useRouter();
   const id = "5fe6c68e60f4190ca3cb6b46";
+
+  const { data } = useFetch(`/user/${id}`);
+
+  const router = useRouter();
 
   const [loading, setLoading] = useState<Boolean>(false);
   const [newAvatar, setNewAvatar] = useState<File>();
@@ -35,15 +38,17 @@ export default function Profile() {
     }
   }
 
-  const { data } = useFetch(`/user/${id}`);
-
   if (!data) return <h1>Loading...</h1>;
 
   return (
-    <div className="flex flex-col bg-kult-secondary min-h-full px-8 pt-6">
+    <div className="flex flex-col bg-kult-secondary min-h-screen px-8 pt-10 md:pt-6">
       <div className="w-60 h-auto relative">
-        {loading ? (
-          <img className="w-60 h-60 rounded-full" src="kult.svg" alt="" />
+        {newAvatar ? (
+          <img
+            className="w-60 h-60 rounded-full opacity-40"
+            src={URL.createObjectURL(newAvatar)}
+            alt=""
+          />
         ) : (
           <img
             className="w-60 h-60 rounded-full"
@@ -63,15 +68,21 @@ export default function Profile() {
           />
           <label
             htmlFor="avatar"
-            className="absolute bottom-5 right-8 bg-kult-secondary rounded-full p-2 cursor-pointer"
+            className="absolute bottom-5 right-8 bg-kult-secondary rounded-full p-4 cursor-pointer"
           >
-            <img className="w-8 h-auto" src="/camera.svg" alt="" />
+            {newAvatar ? (
+              <button
+                className="w-20 h-20"
+                type="submit"
+                onClick={handleFormSubmit}
+              >
+                <img className="w-full" src="/upload.svg" alt="" />
+                upload
+              </button>
+            ) : (
+              <img className="w-8 h-auto" src="/camera.svg" alt="" />
+            )}
           </label>
-          {newAvatar && (
-            <button type="submit" onClick={handleFormSubmit}>
-              upload
-            </button>
-          )}
         </form>
       </div>
 

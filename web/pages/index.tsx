@@ -11,7 +11,7 @@ export default function Home({ posts }) {
         <li>MUSICS</li>
       </ul>
       <div className="max-w-3xl mx-2 lg:mx-auto">
-        {posts.map((post) => (
+        {posts.reverse().map((post) => (
           <Post post={post} key={post._id} />
         ))}
       </div>
