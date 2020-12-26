@@ -18,7 +18,6 @@ export default {
         acl: "public-read",
         key: (request: Request, file, cb) => {
             const folderName = request.params.userID
-            console.log(folderName)
             const fileName = `${Date.now()}-${file.originalname}`
             const path = `${folderName}/${fileName}`
             cb(null, path)

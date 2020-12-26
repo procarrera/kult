@@ -24,10 +24,8 @@ export default function Profile() {
     event.preventDefault();
     const data = new FormData();
     data.append("avatar", newAvatar);
-    console.log(newAvatar);
     try {
       const response = await api.put(`/user/${id}`, data, config);
-      console.log(response);
       if (response.data) {
         //Handle errors here passing params in routes
         setLoading(false);

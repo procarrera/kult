@@ -16,7 +16,6 @@ export default {
     },
     async create(req: Request, res: Response) {
         const { creator, section, rating, body } = req.body
-        console.log(body)
 
         try {
             const data: any = {

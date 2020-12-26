@@ -23,8 +23,6 @@ export default function Post() {
       body,
     };
 
-    console.log(data);
-
     try {
       const response = await api.post("/post", data);
       if (response.data) {
