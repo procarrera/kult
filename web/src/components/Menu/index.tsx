@@ -15,24 +15,30 @@ const Menu: React.FC = () => {
 
       {/* NAVIGATION MENU */}
       <ul className="flex flex-row justify-evenly flex-1 md:flex-col md:justify-start">
-        <li
-          className="p-0 m-0 flex flex-row items-center justify-start border-2 border-transparent rounded-lg cursor-pointer
-        hover:rounded-lg hover:border-white hover:border-solid md:bg-red-40 md:p-4"
-        >
-          <img src="/write.svg" alt="" className="w-6" />
+        <li className="p-0 m-0 flex flex-row items-center justify-center">
           <Link href="/post">
-            <h2 className="text-secondary text-sm flex-1 md:ml-2">New Post</h2>
+            <a
+              className="flex flex-row justify-center items-center md:p-4 border-2 border-transparent rounded-lg cursor-pointer
+        hover:rounded-lg hover:border-white hover:border-solid md:bg-red-40"
+            >
+              <img src="/write.svg" alt="" className="w-6" />
+              <h2 className="text-secondary text-sm flex-1 md:ml-2">
+                New Post
+              </h2>
+            </a>
           </Link>
         </li>
-        <li
-          className="p-0 m-0 flex flex-row items-center justify-start border-2 border-transparent rounded-lg cursor-pointer
-        hover:rounded-lg hover:border-white hover:border-solid md:bg-red-40 md:p-4"
-        >
-          <img src="/user.svg" alt="" className="w-6" />
+        <li className="p-0 m-0 flex flex-row items-center justify-center">
           <Link href="/profile">
-            <h2 className="text-secondary text-sm flex-1 md:ml-2">
-              My Profile
-            </h2>
+            <a
+              className="flex flex-row justify-center items-center md:p-4 border-2 border-transparent rounded-lg cursor-pointer
+        hover:rounded-lg hover:border-white hover:border-solid md:bg-red-40"
+            >
+              <img src="/user.svg" alt="" className="w-6" />
+              <h2 className="text-secondary text-sm flex-1 md:ml-2">
+                My Profile
+              </h2>
+            </a>
           </Link>
         </li>
       </ul>

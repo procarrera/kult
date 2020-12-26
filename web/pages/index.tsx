@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import Post from "../src/components/Post/";
+import api from "../src/services/api";
 
 export default function Home({ posts }) {
   return (
@@ -11,7 +12,7 @@ export default function Home({ posts }) {
         <li>MUSICS</li>
       </ul>
       <div className="max-w-3xl mx-2 lg:mx-auto">
-        {posts.reverse().map((post) => (
+        {posts.map((post) => (
           <Post post={post} key={post._id} />
         ))}
       </div>
@@ -21,8 +22,8 @@ export default function Home({ posts }) {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   // Call an external API endpoint to get posts.
-  const res = await fetch("http://localhost:4444/posts");
-  const posts = await res.json();
+  const response = await api.get("/posts");
+  const posts = response.data.reverse();
 
   // will receive `posts` as a prop at build time
   return {

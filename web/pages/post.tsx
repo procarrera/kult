@@ -3,6 +3,8 @@ import { FormEvent, useState } from "react";
 import api from "../src/services/api";
 import useFetch from "../src/utils/dataFetcher";
 
+import FakeContent from "../src/components/FakeContent";
+
 export default function Post() {
   const id = "5fe6c68e60f4190ca3cb6b46";
 
@@ -33,7 +35,7 @@ export default function Post() {
       console.log(error);
     }
   }
-  if (!data) return <h1>Loading...</h1>;
+  if (!data) return <FakeContent />;
 
   return (
     <div className="flex flex-col bg-kult-secondary  min-h-screen px-8 pt-10 md:pt-6">
@@ -43,7 +45,7 @@ export default function Post() {
           src={data.user.avatar_url}
           alt=""
         />
-        Hi! tell us something :)
+        <span className="mt-6">Hi! tell us something :)</span>
       </span>
       <form
         method="post"
@@ -62,7 +64,7 @@ export default function Post() {
         />
         <button
           onClick={handlePostSubmit}
-          className="my-6 p-4 rounded-2xl font-bold bg-kult-primary border-primary border-2 border-solid hover:bg-kult-secondary transition-all"
+          className="my-6 py-4 px-10 rounded-2xl font-bold bg-kult-secondary border-primary border-2 border-solid hover:bg-kult-primary transition-all focus:outline-none"
         >
           Post !
         </button>
