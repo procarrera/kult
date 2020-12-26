@@ -4,15 +4,15 @@ import cors from 'cors'
 
 import Log from "./utils/Log"
 import routes from './routes'
-import DBConnection from './database/Connection'
+import dbConnection from './database/Connection'
 
 // Loading Local Env
 DotEnv.config();
-const PORT = process.env.PORT || 3333
-const MONGO_URI = process.env.MONGO_URI || "URI not defined"
+const PORT = process.env.PORT || 4444
+const MONGO_URL = process.env.MONGO_URL || "URI not defined"
 
 // Connecting to MongoDB Atlas
-DBConnection(MONGO_URI)
+dbConnection(MONGO_URL)
 
 const app = express();
 

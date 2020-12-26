@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
 
-export default async function DBConnection(MONGO_URI: string) {
+export default async function dbConnection(MONGO_URL: string) {
     try {
-        await mongoose.connect(MONGO_URI, {
+        await mongoose.connect(MONGO_URL, {
             useUnifiedTopology: true,
             useNewUrlParser: true,
             useFindAndModify: false,
