@@ -12,6 +12,7 @@ Available: https://kult-web.vercel.app
 #### My Global Strategy
 - Performative, Light and Scalable structure for both Backend and Frontend.
 - Hybrid stack with NextJS (static for first load) and ReactJS (mutable after user actions)
+- Fast, Responsive and standardized Design
 
 ***
 
