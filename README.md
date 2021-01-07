@@ -2,16 +2,20 @@
 
 Available: https://kult-web.vercel.app
 
-*What is the chalange?*
-- Create a new posts
-- Homepage with all posts (Feed)
-- Possibility to change Avatar picture and update it for all posts
+*What is the challenge?*
+- [x] Homepage with all posts (Feed)
+- [x] Create Posts
+- [x] Possibility to change Avatar and update it for all posts
 
-*Global Strategy*
+***
+
+#### My Global Strategy
 - Performative, Light and Scalable structure for both Backend and Frontend.
 - Hybrid stack with NextJS (static for first load) and ReactJS (mutable after user actions)
 
-*STACK*
+***
+
+#### MY STACK
 - NextJS, NodeJS, Express, MongoDb
 
 ***
